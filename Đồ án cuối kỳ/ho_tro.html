@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotelBooking</title>
+  <link rel="stylesheet" href="ho_tro.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="header">
+    <h1>Trung Tâm Hỗ Trợ</h1>
+    <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Tìm kiếm câu hỏi thường gặp..." />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="column">
+      <!-- Liên hệ nhanh -->
+      <div class="card">
+        <div class="quick-contact">
+          <h3>Liên Hệ Nhanh</h3>
+
+          <div class="contact-box hotline">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <strong>Hotline</strong>
+              <p>1900 1234</p>
+            </div>
+          </div>
+
+          <div class="contact-box chat">
+            <i class="fas fa-comments"></i>
+            <div>
+              <strong>Live Chat</strong>
+              <p>Trò chuyện trực tuyến</p>
+            </div>
+          </div>
+
+          <div class="contact-box email">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <p>support@hotel.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gửi tin nhắn -->
+      <div class="card">
+        <h2>Gửi Tin Nhắn</h2>
+        <form action="#" method="post">
+          <div class="form-group">
+            <input type="text" name="fullname" placeholder="Họ và tên" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Tiêu đề" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" placeholder="Nội dung tin nhắn" required></textarea>
+          </div>
+          <button type="submit">Gửi tin nhắn</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="column">
+      <!-- FAQ -->
+      <div class="faq-container">
+        <h2>Câu Hỏi Thường Gặp</h2>
+        <div class="faq-tabs">
+          <button class="tab active" data-tab="all">Tất cả</button>
+          <button class="tab" data-tab="booking">Đặt phòng</button>
+          <button class="tab" data-tab="payment">Thanh toán</button>
+          <button class="tab" data-tab="security">Bảo mật</button>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              Làm thế nào để đặt phòng khách sạn?
+              <span class="faq-vote">45 hữu ích</span>
+              <span class="arrow">⌄</span>
+            </div>
+            <div class="faq-answer">
+              Bạn có thể đặt phòng qua website hoặc gọi hotline 1900 1234 để được hỗ trợ nhanh nhất.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Tôi có thể hủy đặt phòng không?
+              <span class="faq-vote">38 hữu ích</span>
+              <span class="arrow">⌄</span>
+            </div>
+            <div class="faq-answer">
+              Bạn có thể hủy đặt phòng trong vòng 24 giờ kể từ lúc đặt mà không mất phí.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Các hình thức thanh toán được chấp nhận?
+              <span class="faq-vote">32 hữu ích</span>
+              <span class="arrow">⌄</span>
+            </div>
+            <div class="faq-answer">
+              Chúng tôi chấp nhận thanh toán qua thẻ tín dụng, chuyển khoản ngân hàng và ví điện tử.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Làm sao để nhận được hóa đơn VAT?
+              <span class="faq-vote">28 hữu ích</span>
+              <span class="arrow">⌄</span>
+            </div>
+            <div class="faq-answer">
+              Bạn có thể yêu cầu hóa đơn VAT khi đặt phòng, chúng tôi sẽ gửi hóa đơn qua email.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Chính sách bảo mật thông tin như thế nào?
+              <span class="faq-vote">22 hữu ích</span>
+              <span class="arrow">⌄</span>
+            </div>
+            <div class="faq-answer">
+              Chúng tôi cam kết bảo mật thông tin cá nhân của bạn và không chia sẻ với bên thứ ba.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Tôi muốn thay đổi thông tin đặt phòng?
+              <span class="faq-vote">19 hữu ích</span>
+              <span class="arrow">⌄</span>
+            </div>
+            <div class="faq-answer">
+              Vui lòng liên hệ hotline hoặc chat trực tuyến để được hỗ trợ thay đổi thông tin đặt phòng.
+            </div>
+          </div>
+          <div class="faq-item" data-topic="booking">
+            <h3>Làm sao để đặt phòng?</h3>
+            <p>Bạn có thể đặt phòng qua website, app hoặc gọi tổng đài 1800 xxx xxx.</p>
+            </div>
+          <div class="faq-item" data-topic="payment">
+            <h3>Tôi có thể thanh toán bằng những hình thức nào?</h3>
+            <p>Chúng tôi chấp nhận thẻ tín dụng, chuyển khoản và ví điện tử.</p>
+          </div>
+
+          <div class="faq-item" data-topic="security">
+            <h3>Thông tin của tôi có được bảo mật không?</h3>
+            <p>Chúng tôi mã hóa toàn bộ dữ liệu người dùng bằng SSL 256-bit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-column">
+      <h3>HotelBooking</h3>
+      <p>Nền tảng đặt phòng khách sạn hàng đầu Việt Nam với hàng triệu lựa chọn tuyệt vời.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Liên kết nhanh</h3>
+      <p><a href="#">Về chúng tôi</a></p>
+      <p><a href="#">Điều khoản sử dụng</a></p>
+      <p><a href="#">Chính sách bảo mật</a></p>
+      <p><a href="#">Hỗ trợ</a></p>
+    </div>
+    <div class="footer-column">
+      <h3>Điểm đến phổ biến</h3>
+      <p>Hồ Chí Minh</p>
+      <p>Hà Nội</p>
+      <p>Đà Nẵng</p>
+      <p>Phú Quốc</p>
+    </div>
+    <div class="footer-column">
+      <h3>Liên hệ</h3>
+      <p>Email: support@hotelbooking.vn</p>
+      <p>Hotline: 1900 1234</p>
+      <p>Địa chỉ: 123 Nguyễn Huệ, Q1, TP.HCM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 HotelBooking. Tất cả các quyền được bảo lưu.</p>
+  </div>
+  <script>
+  // Toggle FAQ answer (accordion)
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+
+  // Tab filter
+  const tabs = document.querySelectorAll('.tab');
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Đặt lại class active
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const topic = tab.getAttribute('data-tab');
+
+      faqItems.forEach(item => {
+        if (topic === 'all' || item.getAttribute('data-topic') === topic) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
