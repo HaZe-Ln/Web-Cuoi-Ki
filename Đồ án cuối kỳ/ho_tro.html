@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <div class="header">
+  <div class="banner">
     <h1>Trung Tâm Hỗ Trợ</h1>
     <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
     <div class="search-bar">
@@ -82,7 +82,7 @@
           <button class="tab" data-tab="security">Bảo mật</button>
         </div>
         <div class="faq-list">
-          <div class="faq-item">
+          <div class="faq-item" data-topic="booking">
             <div class="faq-question">
               Làm thế nào để đặt phòng khách sạn?
               <span class="faq-vote">45 hữu ích</span>
@@ -92,7 +92,8 @@
               Bạn có thể đặt phòng qua website hoặc gọi hotline 1900 1234 để được hỗ trợ nhanh nhất.
             </div>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item" data-topic="booking">
             <div class="faq-question">
               Tôi có thể hủy đặt phòng không?
               <span class="faq-vote">38 hữu ích</span>
@@ -102,7 +103,8 @@
               Bạn có thể hủy đặt phòng trong vòng 24 giờ kể từ lúc đặt mà không mất phí.
             </div>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item" data-topic="payment">
             <div class="faq-question">
               Các hình thức thanh toán được chấp nhận?
               <span class="faq-vote">32 hữu ích</span>
@@ -112,7 +114,8 @@
               Chúng tôi chấp nhận thanh toán qua thẻ tín dụng, chuyển khoản ngân hàng và ví điện tử.
             </div>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item" data-topic="payment">
             <div class="faq-question">
               Làm sao để nhận được hóa đơn VAT?
               <span class="faq-vote">28 hữu ích</span>
@@ -122,7 +125,8 @@
               Bạn có thể yêu cầu hóa đơn VAT khi đặt phòng, chúng tôi sẽ gửi hóa đơn qua email.
             </div>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item" data-topic="security">
             <div class="faq-question">
               Chính sách bảo mật thông tin như thế nào?
               <span class="faq-vote">22 hữu ích</span>
@@ -132,7 +136,8 @@
               Chúng tôi cam kết bảo mật thông tin cá nhân của bạn và không chia sẻ với bên thứ ba.
             </div>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item" data-topic="security">
             <div class="faq-question">
               Tôi muốn thay đổi thông tin đặt phòng?
               <span class="faq-vote">19 hữu ích</span>
@@ -141,19 +146,6 @@
             <div class="faq-answer">
               Vui lòng liên hệ hotline hoặc chat trực tuyến để được hỗ trợ thay đổi thông tin đặt phòng.
             </div>
-          </div>
-          <div class="faq-item" data-topic="booking">
-            <h3>Làm sao để đặt phòng?</h3>
-            <p>Bạn có thể đặt phòng qua website, app hoặc gọi tổng đài 1800 xxx xxx.</p>
-            </div>
-          <div class="faq-item" data-topic="payment">
-            <h3>Tôi có thể thanh toán bằng những hình thức nào?</h3>
-            <p>Chúng tôi chấp nhận thẻ tín dụng, chuyển khoản và ví điện tử.</p>
-          </div>
-
-          <div class="faq-item" data-topic="security">
-            <h3>Thông tin của tôi có được bảo mật không?</h3>
-            <p>Chúng tôi mã hóa toàn bộ dữ liệu người dùng bằng SSL 256-bit.</p>
           </div>
         </div>
       </div>
@@ -190,35 +182,46 @@
   <div class="footer-bottom">
     <p>&copy; 2024 HotelBooking. Tất cả các quyền được bảo lưu.</p>
   </div>
+
+  <!-- Script: Accordion + Tab Filter -->
   <script>
   // Toggle FAQ answer (accordion)
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
       item.classList.toggle('active');
+      });
     });
-  });
 
   // Tab filter
-  const tabs = document.querySelectorAll('.tab');
-  const faqItems = document.querySelectorAll('.faq-item');
+    const tabs = document.querySelectorAll('.tab');
+    const faqItems = document.querySelectorAll('.faq-item');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Đặt lại class active
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const topic = tab.getAttribute('data-tab');
-
+  // Hàm lọc theo chủ đề
+    function filterFAQs(topic) {
       faqItems.forEach(item => {
-        if (topic === 'all' || item.getAttribute('data-topic') === topic) {
+        const itemTopic = item.getAttribute('data-topic');
+        if (topic === 'all' || itemTopic === topic) {
           item.style.display = 'block';
         } else {
           item.style.display = 'none';
         }
       });
+    }
+
+  // Gắn sự kiện cho từng tab
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const topic = tab.getAttribute('data-tab');
+        filterFAQs(topic);
+      });
     });
-  });
-</script>
+
+  // Khi trang vừa load, mặc định hiển thị tất cả
+    window.addEventListener('DOMContentLoaded', () => {
+      filterFAQs('all');
+    });
+  </script>
 </body>
 </html>
