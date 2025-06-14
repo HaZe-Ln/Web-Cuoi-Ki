@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Cá Nhân</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="hosocanhan.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1>Hồ Sơ Cá Nhân</h1>
+            <p>Quản lý thông tin và tùy chỉnh tài khoản của bạn</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Profile Card -->
+        <div class="card1">
+            <div class="card-content profile-card">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             alt="Profile">
+                    </div>
+                    <button class="camera-btn">
+                        <i data-lucide="camera"></i>
+                    </button>
+                </div>
+                
+                <h2 class="profile-name" id="displayName">Nguyễn Văn A</h2>
+                <p class="profile-email" id="displayEmail">nguyenvana@email.com</p>
+                
+                <div class="profile-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Thành viên từ:</span>
+                        <span class="stat-value">Jan 2023</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Đặt phòng:</span>
+                        <span class="stat-value">15 lần</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Điểm tích lũy:</span>
+                        <span class="stat-value highlight">2,450</span>
+                    </div>
+                </div>
+                
+                <button id="editToggleBtn" class="btn btn-primary btn-full">
+                    <i data-lucide="edit"></i>
+                    <span>Chỉnh sửa hồ sơ</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Information -->
+        <div class="card2">
+            <div class="card-header">
+                <h3 class="card-title">Thông Tin Chi Tiết</h3>
+                <button id="saveBtn" class="btn btn-success hidden">
+                    <i data-lucide="save"></i>
+                    Lưu thay đổi
+                </button>
+            </div>
+            <div class="card-content">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Thông tin cá nhân</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="label">Họ</label>
+                            <input type="text" id="firstName" value="Nguyễn" disabled class="input">
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Tên</label>
+                            <input type="text" id="lastName" value="Văn A" disabled class="input">
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Email</label>
+                            <input type="email" id="email" value="nguyenvana@email.com" disabled class="input">
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Số điện thoại</label>
+                            <input type="text" id="phone" value="0123 456 789" disabled class="input">
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Ngày sinh</label>
+                            <input type="date" id="birthDate" value="1990-01-15" disabled class="input">
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Giới tính</label>
+                            <select id="gender" disabled class="select">
+                                <option value="male" selected>Nam</option>
+                                <option value="female">Nữ</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Địa chỉ</h3>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label class="label">Địa chỉ</label>
+                            <input type="text" id="address" value="123 Đường ABC, Quận 1, TP.HCM" disabled class="input">
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Quốc tịch</label>
+                            <input type="text" id="nationality" value="Việt Nam" disabled class="input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="form-section">
+                    <h3 class="section-title">Giới thiệu</h3>
+                    <div class="form-group">
+                        <label class="label">Về bản thân</label>
+                        <textarea id="bio" disabled class="textarea" 
+                                  placeholder="Chia sẻ về sở thích du lịch và những trải nghiệm của bạn...">Yêu thích du lịch và khám phá những điểm đến mới. Đã từng đi qua 15 tỉnh thành của Việt Nam.</textarea>
+                    </div>
+                </div>
+
+                <!-- Travel Preferences -->
+                <div class="form-section">
+                    <h3 class="section-title">Sở thích du lịch</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="label">Điểm đến yêu thích</label>
+                            <select id="preferredDestination" disabled class="select">
+                                <option selected>Biển đảo</option>
+                                <option>Núi rừng</option>
+                                <option>Thành phố</option>
+                                <option>Di tích lịch sử</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="label">Phong cách du lịch</label>
+                            <select id="travelStyle" disabled class="select">
+                                <option selected>Nghỉ dưỡng</option>
+                                <option>Khám phá</option>
+                                <option>Văn hóa</option>
+                                <option>Ẩm thực</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="hosocanhan.js"></script>
+</body>
+</html>
