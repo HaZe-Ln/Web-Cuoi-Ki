@@ -42,3 +42,15 @@ document.getElementById('bookingForm').addEventListener('submit', function (e) {
     // Chuyển trang sau khi đặt phòng
     window.location.href = 'datphongthanhcong.html';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('accountBtn');
+  var menu = btn.parentElement;
+  btn.onclick = function(e) {
+    e.stopPropagation();
+    menu.classList.toggle('open');
+  };
+  document.addEventListener('click', function() {
+    menu.classList.remove('open');
+  });
+});
