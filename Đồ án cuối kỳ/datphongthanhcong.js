@@ -30,3 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalCost = bookingInfo.price + bookingInfo.tax;
   document.getElementById('totalCost').textContent = totalCost.toLocaleString('vi-VN') + ' ₫';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('accountBtn');
+  var menu = btn.parentElement;
+  btn.onclick = function(e) {
+    e.stopPropagation();
+    menu.classList.toggle('open');
+  };
+  document.addEventListener('click', function() {
+    menu.classList.remove('open');
+  });
+});
