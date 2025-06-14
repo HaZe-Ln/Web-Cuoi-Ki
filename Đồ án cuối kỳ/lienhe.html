@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên Hệ Với Chúng Tôi</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="lienhe.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-container">
+      <h1 class="hero-title">Liên Hệ Với Chúng Tôi</h1>
+      <p class="hero-subtitle">Chúng tôi luôn sẵn sàng hỗ trợ bạn mọi lúc mọi nơi</p>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="grid-container">
+      <!-- Contact Information -->
+      <div>
+        <h2 class="section-title">Thông Tin Liên Hệ</h2>
+        <div class="contact-info-container">
+          <!-- Address -->
+          <div class="contact-item">
+            <div class="contact-info-icon">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div>
+              <h3 class="contact-item-title">Địa chỉ</h3>
+              <p class="contact-item-content">123 Đường Nguyễn Huệ, Quận 1, TP.HCM</p>
+              <p class="contact-item-subcontent">Việt Nam</p>
+            </div>
+          </div>
+          
+          <!-- Phone -->
+          <div class="contact-item">
+            <div class="contact-info-icon">
+              <i data-lucide="phone"></i>
+            </div>
+            <div>
+              <h3 class="contact-item-title">Điện thoại</h3>
+              <p class="contact-item-content">+84 28 1234 5678</p>
+              <p class="contact-item-subcontent">Hotline: 1900 1234</p>
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div class="contact-item">
+            <div class="contact-info-icon">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <h3 class="contact-item-title">Email</h3>
+              <p class="contact-item-content">info@hotelbooking.vn</p>
+              <p class="contact-item-subcontent">support@hotelbooking.vn</p>
+            </div>
+          </div>
+          
+          <!-- Working Hours -->
+          <div class="contact-item">
+            <div class="contact-info-icon">
+              <i data-lucide="clock"></i>
+            </div>
+            <div>
+              <h3 class="contact-item-title">Giờ làm việc</h3>
+              <p class="contact-item-content">Thứ 2 - Thứ 6: 8:00 - 18:00</p>
+              <p class="contact-item-subcontent">Thứ 7 - CN: 9:00 - 17:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-card">
+          <div class="map-container">
+            <div class="map-placeholder">
+              <div class="map-placeholder-content">
+                <i data-lucide="map-pin" class="map-icon"></i>
+                <p class="map-text">Bản đồ vị trí văn phòng</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <div class="form-card">
+          <div class="form-header">
+            <h2 class="form-title">Gửi Tin Nhắn</h2>
+          </div>
+          <div class="form-content">
+            <form id="contactForm" class="form-space">
+              <div>
+                <label for="name" class="form-label">Họ và tên *</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  class="form-input"
+                  placeholder="Nhập họ và tên của bạn"
+                />
+              </div>
+
+              <div class="form-grid">
+                <div>
+                  <label for="email" class="form-label">Email *</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    class="form-input"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label for="phone" class="form-label">Số điện thoại</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    class="form-input"
+                    placeholder="0123 456 789"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="subject" class="form-label">Tiêu đề *</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  required
+                  class="form-input"
+                  placeholder="Chủ đề bạn muốn liên hệ"
+                />
+              </div>
+
+              <div>
+                <label for="message" class="form-label">Nội dung *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="6"
+                  class="form-textarea"
+                  placeholder="Mô tả chi tiết nội dung bạn muốn chia sẻ..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="submit-button"
+              >
+                <i data-lucide="send" class="button-icon"></i>
+                Gửi tin nhắn
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="faq-container">
+          <h3 class="faq-title">Câu Hỏi Thường Gặp</h3>
+          <p class="faq-text">
+            Trước khi liên hệ, bạn có thể tham khảo các câu hỏi thường gặp để tìm câu trả lời nhanh chóng.
+          </p>
+          <button class="faq-button">
+            Xem FAQ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="lienhe.js"></script>
+</body>
+</html>

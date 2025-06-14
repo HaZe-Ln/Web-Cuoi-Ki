@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khám Phá Điểm Đến</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="diemden.css">
+</head>
+<body>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold mb-6">Khám Phá Điểm Đến</h1>
+          <p class="text-xl mb-8 max-w-3xl mx-auto">
+            Tìm hiểu những điểm đến tuyệt vời nhất Việt Nam và thế giới
+          </p>
+          <div class="max-w-md mx-auto">
+            <input
+              type="text"
+              placeholder="Tìm kiếm điểm đến..."
+              class="input text-gray-900"
+              id="searchInput"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Destinations -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">Điểm Đến Nổi Bật</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <!-- Hà Nội -->
+        <div class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Hà Nội"
+              class="w-full h-64 object-cover"
+            />
+            <div class="absolute top-4 right-4 bg-white rounded-full p-2">
+              <i data-lucide="camera" class="h-4 w-4 text-gray-600"></i>
+            </div>
+          </div>
+          <div class="card-content p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-semibold">Hà Nội</h3>
+              <div class="flex items-center">
+                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                <span class="text-sm text-gray-600 ml-1">4.6</span>
+              </div>
+            </div>
+            
+            <div class="flex items-center text-gray-600 mb-3">
+              <i data-lucide="map-pin" class="h-4 w-4 mr-1"></i>
+              <span class="text-sm">Việt Nam</span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">Thủ đô ngàn năm văn hiến với những di tích lịch sử và ẩm thực phong phú</p>
+            
+            <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+              <span>1250 khách sạn</span>
+              <span>89 tour</span>
+            </div>
+            
+            <button class="button w-full bg-blue-600 hover:bg-blue-700">
+              Khám phá ngay
+            </button>
+          </div>
+        </div>
+
+        <!-- Hồ Chí Minh -->
+        <div class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Hồ Chí Minh"
+              class="w-full h-64 object-cover"
+            />
+            <div class="absolute top-4 right-4 bg-white rounded-full p-2">
+              <i data-lucide="camera" class="h-4 w-4 text-gray-600"></i>
+            </div>
+          </div>
+          <div class="card-content p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-semibold">Hồ Chí Minh</h3>
+              <div class="flex items-center">
+                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                <span class="text-sm text-gray-600 ml-1">4.5</span>
+              </div>
+            </div>
+            
+            <div class="flex items-center text-gray-600 mb-3">
+              <i data-lucide="map-pin" class="h-4 w-4 mr-1"></i>
+              <span class="text-sm">Việt Nam</span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">Thành phố năng động với nhịp sống hiện đại và di sản văn hóa độc đáo</p>
+            
+            <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+              <span>980 khách sạn</span>
+              <span>76 tour</span>
+            </div>
+            
+            <button class="button w-full bg-blue-600 hover:bg-blue-700">
+              Khám phá ngay
+            </button>
+          </div>
+        </div>
+
+        <!-- Đà Nẵng -->
+        <div class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Đà Nẵng"
+              class="w-full h-64 object-cover"
+            />
+            <div class="absolute top-4 right-4 bg-white rounded-full p-2">
+              <i data-lucide="camera" class="h-4 w-4 text-gray-600"></i>
+            </div>
+          </div>
+          <div class="card-content p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-semibold">Đà Nẵng</h3>
+              <div class="flex items-center">
+                <i data-lucide="star" class="h-4 w-4 text-yellow-400 fill-current"></i>
+                <span class="text-sm text-gray-600 ml-1">4.7</span>
+              </div>
+            </div>
+            
+            <div class="flex items-center text-gray-600 mb-3">
+              <i data-lucide="map-pin" class="h-4 w-4 mr-1"></i>
+              <span class="text-sm">Việt Nam</span>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">Thành phố biển xinh đẹp với những bãi biển tuyệt vời và cầu Vàng nổi tiếng</p>
+            
+            <div class="flex items-center justify-between mb-4 text-sm text-gray-600">
+              <span>650 khách sạn</span>
+              <span>45 tour</span>
+            </div>
+            
+            <button class="button w-full bg-blue-600 hover:bg-blue-700">
+              Khám phá ngay
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Destinations -->
+      <h2 class="text-3xl font-bold text-center mb-12">Tất Cả Điểm Đến</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Hà Nội -->
+        <div class="card overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="flex">
+            <img 
+              src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Hà Nội"
+              class="w-32 h-32 object-cover"
+            />
+            <div class="card-content p-4 flex-1">
+              <h3 class="font-semibold text-lg mb-1">Hà Nội</h3>
+              <div class="flex items-center text-gray-600 mb-2">
+                <i data-lucide="map-pin" class="h-3 w-3 mr-1"></i>
+                <span class="text-xs">Việt Nam</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">Thủ đô ngàn năm văn hiến với những di tích lịch sử và ẩm thực phong phú</p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>1250 KS</span>
+                <div class="flex items-center">
+                  <i data-lucide="star" class="h-3 w-3 text-yellow-400 fill-current mr-1"></i>
+                  4.6
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hồ Chí Minh -->
+        <div class="card overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="flex">
+            <img 
+              src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Hồ Chí Minh"
+              class="w-32 h-32 object-cover"
+            />
+            <div class="card-content p-4 flex-1">
+              <h3 class="font-semibold text-lg mb-1">Hồ Chí Minh</h3>
+              <div class="flex items-center text-gray-600 mb-2">
+                <i data-lucide="map-pin" class="h-3 w-3 mr-1"></i>
+                <span class="text-xs">Việt Nam</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">Thành phố năng động với nhịp sống hiện đại và di sản văn hóa độc đáo</p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>980 KS</span>
+                <div class="flex items-center">
+                  <i data-lucide="star" class="h-3 w-3 text-yellow-400 fill-current mr-1"></i>
+                  4.5
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Đà Nẵng -->
+        <div class="card overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="flex">
+            <img 
+              src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Đà Nẵng"
+              class="w-32 h-32 object-cover"
+            />
+            <div class="card-content p-4 flex-1">
+              <h3 class="font-semibold text-lg mb-1">Đà Nẵng</h3>
+              <div class="flex items-center text-gray-600 mb-2">
+                <i data-lucide="map-pin" class="h-3 w-3 mr-1"></i>
+                <span class="text-xs">Việt Nam</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">Thành phố biển xinh đẹp với những bãi biển tuyệt vời và cầu Vàng nổi tiếng</p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>650 KS</span>
+                <div class="flex items-center">
+                  <i data-lucide="star" class="h-3 w-3 text-yellow-400 fill-current mr-1"></i>
+                  4.7
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nha Trang -->
+        <div class="card overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="flex">
+            <img 
+              src="https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Nha Trang"
+              class="w-32 h-32 object-cover"
+            />
+            <div class="card-content p-4 flex-1">
+              <h3 class="font-semibold text-lg mb-1">Nha Trang</h3>
+              <div class="flex items-center text-gray-600 mb-2">
+                <i data-lucide="map-pin" class="h-3 w-3 mr-1"></i>
+                <span class="text-xs">Việt Nam</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">Thiên đường biển đảo với làn nước trong xanh và san hô đầy màu sắc</p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>420 KS</span>
+                <div class="flex items-center">
+                  <i data-lucide="star" class="h-3 w-3 text-yellow-400 fill-current mr-1"></i>
+                  4.6
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phú Quốc -->
+        <div class="card overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="flex">
+            <img 
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Phú Quốc"
+              class="w-32 h-32 object-cover"
+            />
+            <div class="card-content p-4 flex-1">
+              <h3 class="font-semibold text-lg mb-1">Phú Quốc</h3>
+              <div class="flex items-center text-gray-600 mb-2">
+                <i data-lucide="map-pin" class="h-3 w-3 mr-1"></i>
+                <span class="text-xs">Việt Nam</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">Đảo ngọc với bãi biển cát trắng và hệ sinh thái biển phong phú</p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>380 KS</span>
+                <div class="flex items-center">
+                  <i data-lucide="star" class="h-3 w-3 text-yellow-400 fill-current mr-1"></i>
+                  4.8
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sapa -->
+        <div class="card overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="flex">
+            <img 
+              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Sapa"
+              class="w-32 h-32 object-cover"
+            />
+            <div class="card-content p-4 flex-1">
+              <h3 class="font-semibold text-lg mb-1">Sapa</h3>
+              <div class="flex items-center text-gray-600 mb-2">
+                <i data-lucide="map-pin" class="h-3 w-3 mr-1"></i>
+                <span class="text-xs">Việt Nam</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">Vùng núi cao với ruộng bậc thang và văn hóa dân tộc thiểu số đặc sắc</p>
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                <span>280 KS</span>
+                <div class="flex items-center">
+                  <i data-lucide="star" class="h-3 w-3 text-yellow-400 fill-current mr-1"></i>
+                  4.5
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Placeholder -->
+    <footer class="footer">Footer Content</footer>
+  </div>
+
+  <script src="diemden.js"></script>
+</body>
+</html>
