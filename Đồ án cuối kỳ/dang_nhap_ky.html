@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập / Đăng ký</title>
+  <link rel="stylesheet" href="dang_nhap_ky.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Chào mừng bạn</h1>
+    <p>Đăng nhập hoặc tạo tài khoản mới</p>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-login">Đăng nhập</button>
+      <button class="tab" id="tab-register">Đăng ký</button>
+    </div>
+
+    <!-- Đăng nhập -->
+    <form id="form-login" class="form">
+      <label>Email</label>
+      <div class="input-group">
+        <span class="icon">📧</span>
+        <input type="email" placeholder="Nhập email của bạn" required />
+      </div>
+
+      <label>Mật khẩu</label>
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input type="password" id="login-password" placeholder="Nhập mật khẩu" required />
+        <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+      </div>
+
+      <div class="options">
+        <label><input type="checkbox" /> Ghi nhớ đăng nhập</label>
+        <a href="#" class="forgot">Quên mật khẩu?</a>
+      </div>
+
+      <button type="submit" class="login-btn">Đăng nhập</button>
+
+      <div class="divider">Hoặc tiếp tục với</div>
+      <div class="social-login">
+        <button class="google">G <span>Google</span></button>
+        <button class="facebook">f <span>Facebook</span></button>
+      </div>
+    </form>
+
+    <!-- Đăng ký -->
+    <form id="form-register" class="form hidden">
+      <label>Họ và tên</label>
+      <div class="input-group">
+        <span class="icon">👤</span>
+        <input type="text" placeholder="Nhập họ và tên" required />
+      </div>
+
+      <label>Email</label>
+      <div class="input-group">
+        <span class="icon">📧</span>
+        <input type="email" placeholder="Nhập email của bạn" required />
+      </div>
+
+      <label>Mật khẩu</label>
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input type="password" id="register-password" placeholder="Nhập mật khẩu" required />
+        <span class="toggle-password" onclick="togglePassword('register-password')">👁️</span>
+      </div>
+
+      <label>Xác nhận mật khẩu</label>
+      <div class="input-group">
+        <span class="icon">🔒</span>
+        <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu" required />
+        <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+      </div>
+
+      <p class="terms">
+        Bằng việc đăng ký, bạn đồng ý với <a href="#">Điều khoản sử dụng</a> và 
+        <a href="#">Chính sách bảo mật</a>
+      </p>
+
+      <button type="submit" class="login-btn">Đăng ký</button>
+
+      <div class="divider">Hoặc tiếp tục với</div>
+      <div class="social-login">
+        <button class="google">G <span>Google</span></button>
+        <button class="facebook">f <span>Facebook</span></button>
+      </div>
+    </form>
+  </div>
+
+  <script src="dang_nhap_ky.js"></script>
+</body>
+</html>

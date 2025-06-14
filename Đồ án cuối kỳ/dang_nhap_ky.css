@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  width: 400px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background: #f1f1f1;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: white;
+  border-bottom: 3px solid #2d89ef;
+}
+
+.form {
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  background: #f9fafb;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.toggle-password {
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.forgot {
+  text-decoration: none;
+  color: #2d89ef;
+}
+
+.login-btn {
+  width: 100%;
+  background-color: #2d89ef;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #888;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-login button {
+  flex: 1;
+  padding: 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.terms {
+  font-size: 13px;
+  color: #444;
+  margin-top: 15px;
+}
+
+.terms a {
+  color: #2d89ef;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
