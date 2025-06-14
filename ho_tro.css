@@ -10,17 +10,17 @@ body {
   color: #111827;
 }
 
-.header {
+.banner {
   background: #1d4ed8;
   color: white;
   padding: 40px 20px;
   text-align: center;
 }
-.header h1 {
+.banner h1 {
   margin: 0 0 10px;
   font-size: 32px;
 }
-.header p {
+.banner p {
   margin: 0 0 20px;
 }
 
