@@ -17,56 +17,45 @@
 </head>
 <body>
   <header class="border-bottom bg-light">
-    <nav class="container navbar navbar-expand-lg navbar-light py-2">
-      <a class="navbar-brand fw-bold text-primary" href="#">HotelBooking</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarContent"
-        aria-controls="navbarContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="collapse navbar-collapse justify-content-center"
-        id="navbarContent"
-      >
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link px-3" href="khachsan.html">Khách sạn</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="uudai.html">Ưu đãi</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">Điểm đến</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">Dịch vụ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">Hỗ trợ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">Về chúng tôi</a>
-          </li>
-        </ul>
-      </div>
-      <div class="d-flex align-items-center gap-3">
-        <a href="#" class="text-secondary d-flex align-items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-            <path d="M14 14s-1-1.5-6-1.5S2 14 2 14s1 0 6 0 6 0 6 0z"/>
-          </svg>
-          Tài khoản
-        </a>
-        <a href="#" class="btn btn-warning px-3">Đăng ký</a>
-      </div>
-    </nav>
-  </header>
+        <nav class="container navbar navbar-expand-lg navbar-light py-2">
+            <a class="navbar-brand fw-bold text-primary" href="#">HotelBooking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active border-bottom border-primary pb-2 px-3" aria-current="page" href="khachsan.html">Khách sạn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Điểm đến</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Hỗ trợ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Về chúng tôi</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="account-menu">
+                    <button id="accountBtn">
+                      <span class="icon-user"></span> Tài khoản
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                      <a href="dangnhap.html">Đăng nhập</a>
+                      <a href="quan_ly_dp.html">Quản lý đặt phòng</a>
+                      <a href="hoso.html">Hồ sơ cá nhân</a>
+                    </div>
+                  </div>
+                <a href="#" class="btn btn-warning px-3">Đăng ký</a>
+            </div>
+        </nav>
+    </header>
 
   <main class="container my-5">
     <div class="text-center mb-5">
