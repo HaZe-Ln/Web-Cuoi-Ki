@@ -1,44 +1,178 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo'));
-  if (!bookingInfo) {
-    alert('Không tìm thấy thông tin đặt phòng.');
-    return;
-  }
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Đặt phòng thành công - HotelBooking</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="stylekhachsan.css" />
+  <link rel="stylesheet" href="datphongthanhcong.css" />
+</head>
+<body>
+  <header class="border-bottom bg-light">
+        <nav class="container navbar navbar-expand-lg navbar-light py-2">
+            <a class="navbar-brand fw-bold text-primary" href="#">HotelBooking</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active border-bottom border-primary pb-2 px-3" aria-current="page" href="khachsan.html">Khách sạn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Điểm đến</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Hỗ trợ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#">Về chúng tôi</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="account-menu">
+                    <button id="accountBtn">
+                      <span class="icon-user"></span> Tài khoản
+                    </button>
+                    <div class="account-dropdown" id="accountDropdown">
+                      <a href="dangnhap.html">Đăng nhập</a>
+                      <a href="quan_ly_dp.html">Quản lý đặt phòng</a>
+                      <a href="hoso.html">Hồ sơ cá nhân</a>
+                    </div>
+                  </div>
+                <a href="#" class="btn btn-warning px-3">Đăng ký</a>
+            </div>
+        </nav>
+    </header>
 
-  // Tạo mã đặt phòng giả (bạn có thể thay bằng logic khác)
-  const bookingCode = 'HB-2024-' + Math.floor(Math.random() * 900000 + 100000);
-  document.getElementById('bookingCode').value = bookingCode;
+  <main class="container my-5">
+    <div class="text-center mb-5">
+      <div class="mb-3">
+        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+      </div>
+      <h2 class="fw-bold">Đặt phòng thành công!</h2>
+      <p class="text-muted fs-5">
+        Cảm ơn bạn đã đặt phòng. Chúng tôi đã gửi email xác nhận đến địa chỉ email
+        của bạn.
+      </p>
+    </div>
 
-  // Hiển thị thông tin khách sạn
-  document.getElementById('hotelInfo').innerHTML = `
-    <strong>${bookingInfo.hotelName}</strong><br/>
-    ${bookingInfo.roomType}<br/>
-    ${bookingInfo.location}
-  `;
+    <section class="card p-4 mb-5 shadow-sm">
+      <h5 class="fw-semibold mb-4">Chi tiết đặt phòng</h5>
 
-  // Hiển thị thời gian lưu trú
-  document.getElementById('stayInfo').innerHTML = `
-    Nhận phòng: ${bookingInfo.checkIn}<br/>
-    Trả phòng: ${bookingInfo.checkOut}<br/>
-    ${bookingInfo.nights} đêm
-  `;
+      <div class="row gy-4">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Mã đặt phòng</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bookingCode"
+              readonly
+            />
+          </div>
 
-  // Thông tin khách
-  document.getElementById('guestInfo').textContent = bookingInfo.guests;
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Thông tin khách sạn</label>
+            <div id="hotelInfo" class="small text-secondary"></div>
+          </div>
+        </div>
 
-  // Tổng chi phí
-  const totalCost = bookingInfo.price + bookingInfo.tax;
-  document.getElementById('totalCost').textContent = totalCost.toLocaleString('vi-VN') + ' ₫';
-});
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="form-label fw-semibold"><i class="bi bi-calendar3 me-2"></i>Thời gian lưu trú</label>
+            <div id="stayInfo" class="small text-secondary"></div>
+          </div>
 
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('accountBtn');
-  var menu = btn.parentElement;
-  btn.onclick = function(e) {
-    e.stopPropagation();
-    menu.classList.toggle('open');
-  };
-  document.addEventListener('click', function() {
-    menu.classList.remove('open');
-  });
-});
+          <div class="mb-4">
+            <label class="form-label fw-semibold"><i class="bi bi-person-fill me-2"></i>Thông tin khách</label>
+            <div id="guestInfo" class="small text-secondary"></div>
+          </div>
+
+          <div class="fs-5 fw-bold text-primary" id="totalCost"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alert alert-info mb-4" role="alert">
+      <h6>Chính sách nhận phòng</h6>
+      <ul class="mb-0">
+        <li>Nhận phòng: từ 14:00</li>
+        <li>Trả phòng: trước 12:00</li>
+        <li>Vui lòng mang theo CCCD/CMND khi nhận phòng</li>
+      </ul>
+    </section>
+
+    <section class="alert alert-warning mb-5" role="alert">
+      <h6>Chính sách huỷ phòng</h6>
+      <p class="mb-0">
+        Huỷ miễn phí trước 24 giờ so với thời gian nhận phòng. Huỷ muộn hơn sẽ
+        bị tính phí 100% giá trị đặt phòng.
+      </p>
+    </section>
+
+    <div class="d-flex gap-2 mb-5">
+      <button class="btn btn-outline-secondary flex-grow-1">
+        <i class="bi bi-download me-2"></i> Tải voucher
+      </button>
+      <button class="btn btn-outline-secondary flex-grow-1">
+        <i class="bi bi-envelope me-2"></i> Gửi lại email
+      </button>
+      <a href="khachsan.html" class="btn btn-primary flex-grow-1">Về trang chủ</a>
+    </div>
+
+    <footer class="bg-dark text-light pt-4 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <h6>HotelBooking</h6>
+            <p class="small">Nền tảng đặt phòng khách sạn hàng đầu Việt Nam với hàng triệu lựa chọn tuyệt vời.</p>
+          </div>
+          <div class="col-md-3 mb-3">
+            <h6>Liên kết nhanh</h6>
+            <ul class="list-unstyled small">
+              <li><a href="#" class="text-light text-decoration-none">Về chúng tôi</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Điều khoản sử dụng</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Chính sách bảo mật</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Hỗ trợ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-3">
+            <h6>Điểm đến phổ biến</h6>
+            <ul class="list-unstyled small">
+              <li><a href="#" class="text-light text-decoration-none">Hồ Chí Minh</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Hà Nội</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Đà Nẵng</a></li>
+              <li><a href="#" class="text-light text-decoration-none">Phú Quốc</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-3">
+            <h6>Liên hệ</h6>
+            <p class="small mb-1">Email: support@hotelbooking.vn</p>
+            <p class="small mb-1">Hotline: 1900 1234</p>
+            <p class="small mb-0">Địa chỉ: 123 Nguyễn Huệ, Quận 1, TP.HCM</p>
+          </div>
+        </div>
+        <div class="text-center small border-top border-secondary pt-3 pb-2">
+          &copy; 2024 HotelBooking. Tất cả quyền được bảo lưu.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="datphongthanhcong.js"></script>
+</body>
+</html>
