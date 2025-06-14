@@ -1,29 +1,39 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background: #f7f9fc;
+  color: #111827;
 }
-.header {
+
+.banner {
   background: #1d4ed8;
   color: white;
   padding: 40px 20px;
   text-align: center;
 }
-.header h1 { margin: 0 0 10px; font-size: 32px; }
-.header p { margin: 0 0 20px; }
+.banner h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+.banner p {
+  margin: 0 0 20px;
+}
 
 .search-bar {
   position: relative;
   max-width: 500px;
-  margin: auto;
+  margin: 0 auto 30px;
 }
 .search-bar input {
   width: 100%;
   padding: 12px 16px 12px 40px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #ccc;
   font-size: 16px;
 }
 .search-icon {
@@ -31,6 +41,8 @@ body {
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
+  font-size: 18px;
+  color: #888;
 }
 
 .container {
@@ -41,7 +53,9 @@ body {
   flex-wrap: wrap;
   gap: 30px;
 }
-.column { flex: 1 1 300px; }
+.column {
+  flex: 1 1 300px;
+}
 
 .contact-box {
   display: flex;
@@ -49,30 +63,46 @@ body {
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 15px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.contact-box:hover {
+  transform: translateY(-2px);
 }
 .contact-box i {
   font-size: 24px;
   margin-right: 15px;
 }
-.hotline { background: #dbeafe; color: #1d4ed8; }
-.chat    { background: #d1fae5; color: #16a34a; }
-.email   { background: #ede9fe; color: #7c3aed; }
+.hotline {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.chat {
+  background: #d1fae5;
+  color: #16a34a;
+}
+.email {
+  background: #ede9fe;
+  color: #7c3aed;
+}
 
 .faq-container {
   background: #f9f9f9;
   padding: 20px;
   border-radius: 12px;
   max-width: 800px;
-  margin: auto;
+  margin: 40px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 .faq-container h2 {
   font-size: 24px;
   margin-bottom: 15px;
+  text-align: center;
 }
 .faq-tabs {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -82,6 +112,10 @@ body {
   background: #f0f0f0;
   border: none;
   cursor: pointer;
+  transition: background 0.2s;
+}
+.tab:hover {
+  background: #e5e7eb;
 }
 .tab.active {
   background: #2563eb;
@@ -89,35 +123,58 @@ body {
 }
 
 .faq-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
+  flex-direction: column;
   background: #fff;
   border: 1px solid #e0e0e0;
   padding: 12px 16px;
   border-radius: 8px;
+  margin-bottom: 10px;
   cursor: pointer;
+  transition: background 0.3s;
 }
-.faq-item:hover { background: #f3f4f6; }
-
+.faq-item.active {
+  display: flex;
+}
+.faq-item:hover {
+  background: #f3f4f6;
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .faq-answer {
   display: none;
   padding-top: 10px;
   color: #555;
 }
-
+.faq-item.active .faq-answer {
+  display: block;
+}
 .faq-question .arrow {
   display: inline-block;
   transition: transform 0.3s ease;
   margin-left: 10px;
 }
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
 .faq-item.active .faq-question .arrow {
   transform: rotate(180deg);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 button {
@@ -128,17 +185,12 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s;
 }
-.form-group {
-  margin-bottom: 15px;
+button:hover {
+  background: #1e40af;
 }
-.form-group input, .form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-textarea { resize: vertical; }
 
 .footer {
   background: #0f172a;
@@ -157,7 +209,8 @@ textarea { resize: vertical; }
   font-size: 16px;
   margin-bottom: 12px;
 }
-.footer-column p, .footer-column a {
+.footer-column p,
+.footer-column a {
   font-size: 13px;
   color: #d1d5db;
   text-decoration: none;
@@ -176,11 +229,16 @@ textarea { resize: vertical; }
 }
 
 @media (max-width: 768px) {
-  .container, .faq-tabs, .footer {
+  .container,
+  .faq-tabs,
+  .footer {
     flex-direction: column;
     align-items: center;
   }
   .footer-column {
     text-align: center;
+  }
+  .faq-item {
+    width: 100%;
   }
 }
