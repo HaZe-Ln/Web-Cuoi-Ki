@@ -246,5 +246,15 @@ function goToDetail(hotelId) {
 
     window.location.href = `xemkhachsan.html?id=${hotelId}&${query}`;
 }
-
+document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('accountBtn');
+    var menu = btn.parentElement;
+    btn.onclick = function(e) {
+      e.stopPropagation();
+      menu.classList.toggle('open');
+    };
+    document.addEventListener('click', function() {
+      menu.classList.remove('open');
+    });
+  });
 
