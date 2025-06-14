@@ -130,31 +130,33 @@
 
                     <dl class="row small mb-3">
                         <dt class="col-7">Nhận phòng:</dt>
-                        <dd class="col-5 text-end">25/05/2024</dd>
+                        <dd class="col-5 text-end" id="checkInDD"></dd>
 
                         <dt class="col-7">Trả phòng:</dt>
-                        <dd class="col-5 text-end">27/05/2024</dd>
+                        <dd class="col-5 text-end" id="checkOutDD"></dd>
 
                         <dt class="col-7">Số đêm:</dt>
-                        <dd class="col-5 text-end">2 đêm</dd>
+                        <dd class="col-5 text-end" id="nightsDD"></dd>
 
                         <dt class="col-7">Khách:</dt>
-                        <dd class="col-5 text-end">2 người</dd>
+                        <dd class="col-5 text-end" id="guestsDD"></dd>
+
                     </dl>
 
                     <dl class="row mb-3 fw-semibold">
-                        <dt class="col-7">Giá phòng (2 đêm):</dt>
-                        <dd class="col-5 text-end">₫3.000.000</dd>
+                        <dt class="col-7">Giá phòng:</dt>
+                        <dd class="col-5 text-end" id="price">₫0</dd>
 
                         <dt class="col-7">Thuế & phí:</dt>
-                        <dd class="col-5 text-end">₫300.000</dd>
+                        <dd class="col-5 text-end" id="tax">₫0</dd>
+
                     </dl>
 
-                    <div class="d-flex justify-content-between fw-semibold fs-5 border-top pt-2 mb-3">
+                   <div class="fw-bold fs-5 d-flex justify-content-between align-items-center border-top pt-3">
                         <div>Tổng cộng:</div>
-                        <div class="text-primary" id="total">₫3.300.000</div>
+                        <div class="text-primary" id="totalPrice">₫0</div> <!-- Phần tử này dùng để hiển thị tổng chi phí -->
                     </div>
-
+                    <input type="hidden" id="bookingCode" name="bookingCode" />
                     <button type="submit" form="bookingForm" class="btn btn-warning w-100 fw-semibold mb-2">Xác nhận đặt phòng</button>
                     <small class="d-block text-center text-muted fst-italic" style="font-size: 0.75rem;">
                         Bằng việc nhấn "Xác nhận đặt phòng", bạn đồng ý với

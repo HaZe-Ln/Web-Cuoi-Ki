@@ -100,7 +100,7 @@ function createHotelCard(hotel) {
                 ${originalPrice ? originalPrice + ' ' : ''} 
                 ${hotel.price.toLocaleString("vi-VN")} đ <small class="text-muted">/đêm</small> 
               </div> 
-              <a href="xemkhachsan.html?id=${hotel.id}" class="btn btn-orange">Xem chi tiết</a>
+           <a href="#" class="btn btn-orange" onclick="goToDetail(${hotel.id})">Xem chi tiết</a>
             </div> 
           </div> 
         </div> 
@@ -127,3 +127,124 @@ document.addEventListener("DOMContentLoaded", () => {
     // Nếu muốn gán giá trị ban đầu:
     priceMin.textContent = Number(priceSlider.value).toLocaleString("vi-VN") + " đ";
 });
+// // ======= CHỨC NĂNG TÌM KIẾM KHÁCH SẠN THEO ĐIỂM ĐẾN =======
+// document.querySelector(".search-box form").addEventListener("submit", function (e) {
+//     e.preventDefault(); // Ngăn reload trang
+
+//     const keyword = document.getElementById("destination").value.trim().toLowerCase();
+
+//     // Lọc danh sách khách sạn theo tên hoặc địa chỉ chứa từ khóa
+//     const filtered = hotels.filter(hotel => {
+//         return hotel.name.toLowerCase().includes(keyword) ||
+//                hotel.location.toLowerCase().includes(keyword);
+//     });
+
+//     const container = document.getElementById("hotelList");
+//     if (filtered.length === 0) {
+//         container.innerHTML = `<p class="text-danger">Không tìm thấy khách sạn phù hợp với "${keyword}"</p>`;
+//     } else {
+//         container.innerHTML = filtered.map(createHotelCard).join("");
+//     }
+// });
+
+document.querySelector(".search-box form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const keyword = document.getElementById("destination").value.trim().toLowerCase();
+    const checkin = document.getElementById("checkinDate").value;
+    const checkout = document.getElementById("checkoutDate").value;
+    const guestRoom = document.getElementById("guestRoom").value;
+
+    const query = new URLSearchParams({
+        checkin,
+        checkout,
+        guestRoom
+    }).toString();
+
+    // Chọn khách sạn phù hợp đầu tiên
+    const firstMatch = hotels.find(h =>
+        h.name.toLowerCase().includes(keyword) ||
+        h.location.toLowerCase().includes(keyword)
+    );
+
+    const filtered = hotels.filter(h =>
+    h.name.toLowerCase().includes(keyword) ||
+    h.location.toLowerCase().includes(keyword)
+);
+
+const container = document.getElementById("hotelList");
+if (filtered.length === 0) {
+    container.innerHTML = `<p class="text-danger">Không tìm thấy khách sạn phù hợp với "${keyword}"</p>`;
+} else {
+    container.innerHTML = filtered.map(createHotelCard).join("");
+}
+
+});
+
+// ======= ÁP DỤNG BỘ LỌC =======
+document.getElementById("applyFilters").addEventListener("click", function () {
+    const maxPrice = Number(document.getElementById("priceRange").value);
+
+    // Đánh giá
+    const selectedStars = [];
+    for (let i = 1; i <= 5; i++) {
+        if (document.getElementById("star" + i).checked) {
+            selectedStars.push(i);
+        }
+    }
+
+    // Tiện ích
+    const selectedFeatures = [];
+    const allFeatureCheckboxes = document.querySelectorAll(".filter-sidebar .form-check-input");
+    allFeatureCheckboxes.forEach(cb => {
+        const label = document.querySelector(`label[for='${cb.id}']`);
+        if (cb.checked && label && !cb.id.startsWith("star")) {
+            selectedFeatures.push(label.textContent.trim());
+        }
+    });
+
+    // Lọc dữ liệu
+    const filtered = hotels.filter(hotel => {
+        const withinPrice = hotel.price <= maxPrice;
+
+        const withinRating = selectedStars.length === 0 || selectedStars.some(star => hotel.rating >= star);
+
+        const hasFeatures = selectedFeatures.length === 0 || selectedFeatures.every(f => hotel.features.includes(f));
+
+        return withinPrice && withinRating && hasFeatures;
+    });
+
+    const container = document.getElementById("hotelList");
+    if (filtered.length === 0) {
+        container.innerHTML = `<p class="text-danger">Không tìm thấy khách sạn phù hợp với bộ lọc.</p>`;
+    } else {
+        container.innerHTML = filtered.map(createHotelCard).join("");
+    }
+});
+// ======= XÓA BỘ LỌC =======
+document.getElementById("clearFilters").addEventListener("click", () => {
+    // Reset range giá
+    document.getElementById("priceRange").value = 10000000;
+    document.getElementById("priceMin").textContent = "10.000.000 đ";
+
+    // Reset các checkbox
+    document.querySelectorAll(".filter-sidebar .form-check-input").forEach(input => input.checked = false);
+
+    // Hiển thị lại toàn bộ khách sạn
+    renderHotels();
+});
+function goToDetail(hotelId) {
+    const checkin = document.getElementById("checkinDate").value;
+    const checkout = document.getElementById("checkoutDate").value;
+    const guestRoom = document.getElementById("guestRoom").value;
+
+    const query = new URLSearchParams({
+        checkin,
+        checkout,
+        guestRoom
+    }).toString();
+
+    window.location.href = `xemkhachsan.html?id=${hotelId}&${query}`;
+}
+
+
