@@ -71,50 +71,142 @@ const hotels = [
 // Lấy id từ URL
 const params = new URLSearchParams(window.location.search);
 const hotelId = parseInt(params.get('id'));
+// Tính số đêm
+function getNights(checkin, checkout) {
+    const inDate = new Date(checkin);
+    const outDate = new Date(checkout);
+    const diff = (outDate - inDate) / (1000 * 60 * 60 * 24);
+    return diff > 0 ? diff : 1;
+}
+const urlParams = new URLSearchParams(window.location.search);
+const checkIn = urlParams.get("checkin") || "2024-05-25";
+const checkOut = urlParams.get("checkout") || "2024-05-27";
+const guests = urlParams.get("guestRoom") || "2 người, 1 phòng";
+const nights = getNights(checkIn, checkOut);
+
+// Cập nhật vào giao diện
+document.getElementById("checkinText").textContent = checkIn.split("-").reverse().join("/");
+document.getElementById("checkoutText").textContent = checkOut.split("-").reverse().join("/");
+document.getElementById("guestsText").textContent = guests;
+
 const hotel = hotels.find(h => h.id === hotelId);
 
 if (hotel) {
+
+     const standardPriceEl = document.getElementById("standardPriceText");
+    if (standardPriceEl) {
+        standardPriceEl.textContent = hotel.price.toLocaleString("vi-VN") + " ₫/đêm";
+    }
+
+    // Gán giá vào nút chọn phòng tiêu chuẩn
+    const standardRoomBtn = document.getElementById("standardRoomBtn");
+    if (standardRoomBtn) {
+        standardRoomBtn.setAttribute("data-price", hotel.price);
+    }
+    // Cập nhật thông tin khách sạn
     document.querySelector('h1.fw-bold').textContent = hotel.name;
     document.querySelector('.bi-geo-alt-fill').nextSibling.textContent = hotel.location;
     document.querySelectorAll('img')[0].src = hotel.image;
     document.querySelector('.border.rounded.p-3.mb-4 p').textContent = `${hotel.name} nằm tại ${hotel.location}.`;
-    document.querySelector('.btn-warning.w-100').setAttribute('onclick', `saveBookingInfo(${hotelId})`);
+    // document.querySelector('.btn-warning.w-100').setAttribute('onclick', `saveBookingInfo(${hotelId})`);
+
+const bookBtn = document.querySelector('a.btn-warning[href="dondatphong.html"]');
+if (bookBtn) {
+    bookBtn.addEventListener("click", (e) => {
+        const existing = JSON.parse(localStorage.getItem("bookingInfo"));
+        const needOverwrite =
+            !existing || !existing.roomType || existing.hotelName !== hotel.name;
+
+        if (needOverwrite) {
+            saveBookingInfo(hotelId); // Ghi Phòng Tiêu chuẩn
+        }
+    });
 }
+
+
+
+    
+}
+
 
 function saveBookingInfo(hotelId) {
     const selectedHotel = hotels.find(h => h.id === hotelId);
+
+    // Giá gốc khách sạn
+    let price = selectedHotel.price;
+
+    // Nếu khách sạn có giảm giá (giá gốc dùng cho Phòng Tiêu chuẩn)
+    if (selectedHotel.discount && selectedHotel.discount > 0) {
+        price = Math.round(price * (1 - selectedHotel.discount / 100));
+    }
+
+    const subtotal = price * nights;
+    const tax = Math.round(subtotal * 0.1); // 10% VAT
+
     const bookingData = {
         hotelName: selectedHotel.name,
-        roomType: "Phòng Deluxe",
+        roomType: "Phòng Tiêu chuẩn",
         location: selectedHotel.location,
-        checkIn: "25/05/2024",
-        checkOut: "27/05/2024",
-        guests: "2 người",
-        nights: 2,
-        price: selectedHotel.price,
-        tax: Math.round(selectedHotel.price * 0.1)
+        checkIn,
+        checkOut,
+        guests,
+        nights,
+        price,
+        tax,
+        subtotal
     };
+
+    // Lưu vào localStorage và chuyển trang
     localStorage.setItem("bookingInfo", JSON.stringify(bookingData));
     window.location.href = "dondatphong.html";
 }
+
+
+
 console.log("HotelBooking page loaded");
 
+// Cập nhật khi chọn phòng
 function chooseRoom(button) {
     const roomType = button.getAttribute('data-room');
     const price = parseInt(button.getAttribute('data-price'), 10);
+    const subtotal = price * nights;
+    const tax = Math.round(subtotal * 0.1);
+    const total = subtotal + tax;
 
+    // Cập nhật tổng giá sau khi chọn
+    const totalPriceEl = document.getElementById("totalPrice");
+    if (totalPriceEl) {
+        totalPriceEl.textContent = total.toLocaleString('vi-VN') + ' ₫';
+        totalPriceEl.classList.remove("text-muted");         // Nếu có màu mờ ban đầu
+        totalPriceEl.classList.add("text-primary");          // Đổi sang màu chính
+    }
+
+    // Cập nhật thông tin đặt phòng
     const bookingData = {
-        hotelName: "Khách sạn Grand Luxury",
-        roomType,
-        location: "Quận 1, Hồ Chí Minh",
-        checkIn: "25/05/2024",
-        checkOut: "27/05/2024",
-        guests: "2 người",
-        nights: 2,
+        hotelName: hotel.name,
+        roomType: roomType,
+        location: hotel.location,
+        checkIn,
+        checkOut,
+        guests,
+        nights,
         price,
-        tax: Math.round(price * 0.1)
+        tax,
+        subtotal
     };
-
     localStorage.setItem('bookingInfo', JSON.stringify(bookingData));
-    window.location.href = "dondatphong.html";
+
+    // UI: cập nhật trạng thái nút
+    document.querySelectorAll("button[data-room]").forEach(btn => {
+        btn.classList.remove("btn-selected");
+        btn.textContent = "Chọn phòng";
+    });
+    button.classList.add("btn-selected");
+    button.textContent = "Đã chọn ";
 }
+
+
+
+
+
+

@@ -1,36 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bookingInfo = JSON.parse(localStorage.getItem('bookingInfo'));
-    if (!bookingInfo) return;
+    if (!bookingInfo) {
+        alert('Không tìm thấy thông tin đặt phòng.');
+        return;
+    }
 
-    // Cập nhật các phần trong "Chi tiết đặt phòng"
+    // Cập nhật thông tin chi tiết
     document.getElementById('hotelName').textContent = bookingInfo.hotelName;
     document.getElementById('roomInfo').innerHTML = `${bookingInfo.roomType}<br>${bookingInfo.location}`;
-    document.getElementById('checkInDate').textContent = bookingInfo.checkIn;
-    document.getElementById('checkOutDate').textContent = bookingInfo.checkOut;
-    document.getElementById('nightCount').textContent = bookingInfo.nights + ' đêm';
-    document.getElementById('guestCount').textContent = bookingInfo.guests;
-    document.getElementById('price').textContent = bookingInfo.price.toLocaleString('vi-VN') + ' ₫';
-    document.getElementById('tax').textContent = bookingInfo.tax.toLocaleString('vi-VN') + ' ₫';
-    const total = bookingInfo.price + bookingInfo.tax;
-    document.getElementById('total').textContent = total.toLocaleString('vi-VN') + ' ₫';
-    // Cập nhật nhãn ở phần yêu cầu đặc biệt
-    document.getElementById('specialLabel').innerHTML = `Yêu cầu đặc biệt<br><strong>${bookingInfo.roomType}</strong><br>${bookingInfo.location}`;
+
+    // Hiển thị ngày, số đêm, số khách (định dạng đẹp)
+    document.getElementById('checkInDD').textContent = bookingInfo.checkIn.split("-").reverse().join("/");
+    document.getElementById('checkOutDD').textContent = bookingInfo.checkOut.split("-").reverse().join("/");
+    document.getElementById('nightsDD').textContent = `${bookingInfo.nights} đêm`;
+    document.getElementById('guestsDD').textContent = bookingInfo.guests;
+
+    // Tính toán & hiển thị giá
+    const subtotal = bookingInfo.subtotal;
+    const tax = bookingInfo.tax;
+    const totalCost = subtotal + tax;
+
+    document.getElementById('price').textContent = subtotal.toLocaleString('vi-VN') + ' ₫';
+    document.getElementById('tax').textContent = tax.toLocaleString('vi-VN') + ' ₫';
+    document.getElementById('totalPrice').textContent = totalCost.toLocaleString('vi-VN') + ' ₫';
 });
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
+
+// Gửi form đặt phòng
+document.getElementById('bookingForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    const bookingInfo = {
-        hotelName: document.getElementById('hotelName')?.textContent.trim() || 'Khách sạn Grand Luxury',
-        roomType: document.getElementById('roomInfo')?.textContent.split('\n')[0] || 'Phòng Superior',
-        location: document.getElementById('roomInfo')?.textContent.split('\n')[1] || 'Quận 1, Hồ Chí Minh',
-        checkIn: '25/05/2024',
-        checkOut: '27/05/2024',
-        nights: 2,
-        guests: '2 người, 1 phòng',
-        price: 3000000,
-        tax: 300000
+
+    const customerInfo = {
+        lastName: document.getElementById('lastname').value,
+        firstName: document.getElementById('firstname').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        specialRequest: document.getElementById('specialRequest').value
     };
-    localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
+
+    console.log("Thông tin khách hàng:", customerInfo);
+
+    // Chuyển trang sau khi đặt phòng
     window.location.href = 'datphongthanhcong.html';
 });
-document.querySelector('.card .text-muted').innerHTML = `${bookingInfo.roomType}<br>${bookingInfo.location}`;
-document.getElementById('specialLabel').innerHTML = `Yêu cầu đặc biệt<br><strong>${bookingInfo.roomType}</strong><br>${bookingInfo.location}`;
