@@ -15,11 +15,88 @@
       background-color: var(--gray-50);
     }
     
-    /* Header placeholder */
-    .header {
-      height: 64px;
-      background: white;
-    }
+    .navbar-nav .nav-link {
+  color: #4a4a4a;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #4d61fc;
+}
+
+.navbar-nav .nav-link.active {
+  color: #4d61fc !important;
+  border-bottom: 3px solid #4d61fc;
+  font-weight: 600;
+  padding-bottom: 0.4rem !important;
+}
+
+header .btn-warning {
+  background-color: #ff7800;
+  border-color: #ff7800;
+  font-weight: 600;
+}
+
+header .btn-warning:hover,
+header .btn-warning:focus {
+  background-color: #e56f00;
+  border-color: #e56f00;
+}
+
+.account-menu {
+  position: relative;
+  display: inline-block;
+}
+.account-menu button {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.account-menu button:hover {
+  background: #f3f3f3;
+}
+.account-menu .icon-user {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("https://cdn-icons-png.flaticon.com/512/1077/1077114.png")
+    no-repeat center/cover;
+}
+.account-dropdown, .dropdown-menu-custom {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 1000;
+  min-width: 180px;
+}
+.account-dropdown a,
+.dropdown-menu-custom a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.account-dropdown a:hover,
+.dropdown-menu-custom a:hover {
+  background: #f3f3f3;
+}
+.account-menu.open .account-dropdown,
+.dropdown-custom:hover .dropdown-menu-custom {
+  display: block;
+}
     
     /* Hero Section */
     .hero {
