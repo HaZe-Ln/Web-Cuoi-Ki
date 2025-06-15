@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('guestInfo').textContent = bookingInfo.guests;
 
   // Tổng chi phí
-  const totalCost = bookingInfo.price + bookingInfo.tax;
+  const totalCost = bookingInfo.subtotal + bookingInfo.tax;
+
   document.getElementById('totalCost').textContent = totalCost.toLocaleString('vi-VN') + ' ₫';
 });
 

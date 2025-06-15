@@ -144,17 +144,19 @@ function saveBookingInfo(hotelId) {
     const tax = Math.round(subtotal * 0.1); // 10% VAT
 
     const bookingData = {
-        hotelName: selectedHotel.name,
-        roomType: "Phòng Tiêu chuẩn",
-        location: selectedHotel.location,
-        checkIn,
-        checkOut,
-        guests,
-        nights,
-        price,
-        tax,
-        subtotal
-    };
+    hotelName: selectedHotel.name,
+    roomType: "Phòng Tiêu chuẩn",
+    location: selectedHotel.location,
+    checkIn,
+    checkOut,
+    guests,
+    nights,
+    price,
+    tax,
+    subtotal,
+    image: selectedHotel.image 
+};
+
 
     // Lưu vào localStorage và chuyển trang
     localStorage.setItem("bookingInfo", JSON.stringify(bookingData));
@@ -192,7 +194,8 @@ function chooseRoom(button) {
         nights,
         price,
         tax,
-        subtotal
+        subtotal,
+        image: hotel.image
     };
     localStorage.setItem('bookingInfo', JSON.stringify(bookingData));
 
@@ -215,3 +218,15 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.classList.remove('open');
     });
   });
+
+  document.getElementById("dichVuBtn").addEventListener("click", function () {
+  const dropdown = document.getElementById("dichVuDropdown");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+});
+document.addEventListener("click", function (event) {
+  const dichVuBtn = document.getElementById("dichVuBtn");
+  const dichVuDropdown = document.getElementById("dichVuDropdown");
+  if (!dichVuBtn.contains(event.target) && !dichVuDropdown.contains(event.target)) {
+    dichVuDropdown.style.display = "none";
+  }
+});

@@ -11,13 +11,6 @@ body {
   line-height: 1.6;
 }
 
-header {
-  background: linear-gradient(to right, #667eea, #764ba2);
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
-}
-
 header h1 {
   font-size: 36px;
 }
@@ -29,8 +22,12 @@ header p {
 
 section {
   padding: 60px 20px;
+}
+
+.container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .flex {
@@ -143,4 +140,202 @@ section {
   color: #a1a1aa;
   font-size: 13px;
   border-top: 1px solid #1e293b;
+}
+
+.navbar-nav .nav-link {
+   color: #4a4a4a;
+   font-weight: 700;
+   font-size: 1rem;
+   transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+   color: #4d61fc;
+}
+
+.navbar-nav .nav-link.active {
+   color: #4d61fc;
+   border-bottom: 3px solid #4d61fc;
+   font-weight: 600;
+   padding-bottom: 0.4rem !important;
+}
+
+header .btn-warning {
+   background-color: #ff7800;
+   border-color: #ff7800;
+   font-weight: 600;
+}
+
+header .btn-warning:hover,
+header .btn-warning:focus {
+   background-color: #e56f00;
+   border-color: #e56f00;
+}
+
+.d-flex.align-items-center.gap-3 > a.text-secondary {
+   color: #666666;
+   font-weight: 500;
+   font-size: 0.9rem;
+   text-decoration: none;
+}
+
+.d-flex.align-items-center.gap-3 > a.text-secondary:hover {
+   color: #4d61fc;
+}
+
+.d-flex.align-items-center.gap-3 > a svg {
+   fill: currentColor;
+}
+.about-hero {
+  width: 100%;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2, #2b6ef4);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+.mission, .team-member, .core-value, .achievement {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission:hover, .team-member:hover, .core-value:hover, .achievement:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.section-title {
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  color: #2b6ef4;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #764ba2;
+  margin: 12px auto 0;
+  display: block;
+  border-radius: 2px;
+}
+.team-member h3 {
+  color: #4d61fc;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 14px;
+  color: #555;
+}
+.about-hero {
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.flex p {
+  font-size: 16px;
+  color: #444;
+}
+
+img {
+  transition: transform 0.3s ease;
+}
+img:hover {
+  transform: scale(1.05);
+}
+
+/* NHẤN MẠNH THỐNG KÊ */
+.achievement h3 {
+  font-size: 32px;
+  color: #2b6ef4;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.section-mission {
+  background-color: #f9fafb; /* xám nhạt rất nhẹ */
+}
+
+.section-achievement {
+  background-color: #eef2ff; /* xanh lam nhạt */
+}
+
+.section-values {
+  background-color: #fef9f5; /* cam sữa nhạt */
+}
+
+.section-team {
+  background-color: #f0fdf4; /* xanh lá nhạt */
+}
+.section-mission,
+.section-achievement,
+.section-values,
+.section-team {
+  padding: 60px 20px;
+  border-radius: 0px;
+}
+.dropdown-custom {
+  position: relative;
+}
+
+.dropdown-toggle-custom {
+  background: none;
+  border: none;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.dropdown-menu-custom {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 1000;
+  min-width: 180px;
+}
+
+.dropdown-menu-custom a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.dropdown-menu-custom a:hover {
+  background-color: #f5f5f5;
 }

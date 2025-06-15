@@ -39,6 +39,13 @@ document.getElementById('bookingForm').addEventListener('submit', function (e) {
 
     console.log("Thông tin khách hàng:", customerInfo);
 
+    // Lưu bookingInfo hiện tại vào danh sách bookings
+let existingBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+const newBooking = JSON.parse(localStorage.getItem('bookingInfo'));
+if (newBooking) {
+    existingBookings.push(newBooking);
+    localStorage.setItem('bookings', JSON.stringify(existingBookings));
+}
     // Chuyển trang sau khi đặt phòng
     window.location.href = 'datphongthanhcong.html';
 });
@@ -53,4 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function() {
     menu.classList.remove('open');
   });
+});
+document.getElementById("dichVuBtn").addEventListener("click", function () {
+  const dropdown = document.getElementById("dichVuDropdown");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+});
+document.addEventListener("click", function (event) {
+  const dichVuBtn = document.getElementById("dichVuBtn");
+  const dichVuDropdown = document.getElementById("dichVuDropdown");
+  if (!dichVuBtn.contains(event.target) && !dichVuDropdown.contains(event.target)) {
+    dichVuDropdown.style.display = "none";
+  }
 });
