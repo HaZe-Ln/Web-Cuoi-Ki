@@ -1,22 +1,27 @@
-function showTab(tabId) {
-  // 1. Ẩn tất cả các tab-pane
-  document.querySelectorAll(".tab-pane").forEach(pane => {
-    pane.classList.remove("active");
+// Đóng/mở câu hỏi
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const answer = q.nextElementSibling;
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
   });
+});
 
-  // 2. Hiển thị tab-pane được chọn
-  document.getElementById(tabId).classList.add("active");
+// Filter câu hỏi theo tab
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
 
-  // 3. Bỏ active ở tất cả tab
-  document.querySelectorAll(".tab").forEach(tab => {
-    tab.classList.remove("active");
+    const filter = tab.getAttribute('data-filter');
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (filter === 'tatca' || item.dataset.type === filter) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
   });
-
-  // 4. Thêm active cho tab được chọn
-  const clickedButton = Array.from(document.querySelectorAll(".tab"))
-    .find(btn => btn.getAttribute("onclick").includes(tabId));
-  if (clickedButton) clickedButton.classList.add("active");
-}
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('accountBtn');
