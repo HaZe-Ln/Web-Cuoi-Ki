@@ -17,7 +17,7 @@
 <body>
   <header class="border-bottom bg-light">
         <nav class="container navbar navbar-expand-lg navbar-light py-2">
-            <a class="navbar-brand fw-bold text-primary" href="#">HotelBooking</a>
+            <a class="navbar-brand fw-bold text-primary" href="index.html">HotelBooking</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,37 +69,6 @@
       <a href="hosocanhan.html" class="edit-btn">👤 Chỉnh sửa hồ sơ</a>
     </div>
 
-    <div class="stats">
-      <div class="card">
-        <div class="icon">📅</div>
-        <div class="data">
-          <p>Tổng đặt phòng</p>
-          <h2>15</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon">⭐</div>
-        <div class="data">
-          <p>Đã hoàn thành</p>
-          <h2>12</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon">👁️</div>
-        <div class="data">
-          <p>Đang chờ</p>
-          <h2>2</h2>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon">💳</div>
-        <div class="data">
-          <p>Tổng chi tiêu</p>
-          <h2>45M</h2>
-        </div>
-      </div>
-    </div>
-
     <div class="tabs">
       <button class="tab active" onclick="showTab('phong')">Đặt phòng của tôi</button>
       <button class="tab" onclick="showTab('caidat')">Cài đặt</button>
@@ -107,7 +76,7 @@
 
     <div class="tab-content">
       <div id="phong" class="tab-pane active">
-        <p>Danh sách các đặt phòng sẽ hiển thị ở đây.</p>
+        <div id="booking-list"></div>
       </div>
       
       <div id="caidat" class="tab-pane">
