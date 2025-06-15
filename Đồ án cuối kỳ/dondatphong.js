@@ -25,30 +25,46 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('totalPrice').textContent = totalCost.toLocaleString('vi-VN') + ' ₫';
 });
 
-// Gửi form đặt phòng
 document.getElementById('bookingForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const customerInfo = {
-        lastName: document.getElementById('lastname').value,
-        firstName: document.getElementById('firstname').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        specialRequest: document.getElementById('specialRequest').value
-    };
+    // Lấy giá trị từ form
+    const lastName = document.getElementById('lastname').value.trim();
+    const firstName = document.getElementById('firstname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
 
-    console.log("Thông tin khách hàng:", customerInfo);
+    // Kiểm tra các trường bắt buộc
+    if (!lastName || !firstName || !email || !phone) {
+        alert("Vui lòng nhập đầy đủ thông tin khách hàng trước khi xác nhận đặt phòng.");
+        return; // ❌ Dừng lại không gửi form
+    }
 
-    // Lưu bookingInfo hiện tại vào danh sách bookings
-let existingBookings = JSON.parse(localStorage.getItem('bookings')) || [];
-const newBooking = JSON.parse(localStorage.getItem('bookingInfo'));
-if (newBooking) {
-    existingBookings.push(newBooking);
-    localStorage.setItem('bookings', JSON.stringify(existingBookings));
-}
-    // Chuyển trang sau khi đặt phòng
+    // Kiểm tra định dạng email đơn giản
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Email không hợp lệ.");
+        return;
+    }
+
+    // Kiểm tra số điện thoại (ít nhất 9 chữ số)
+    if (!/^\d{9,}$/.test(phone)) {
+        alert("Số điện thoại không hợp lệ.");
+        return;
+    }
+
+    // Nếu hợp lệ → Lưu đơn mới vào localStorage
+    let existingBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+    const newBooking = JSON.parse(localStorage.getItem('bookingInfo'));
+    if (newBooking) {
+        existingBookings.push(newBooking);
+        localStorage.setItem('bookings', JSON.stringify(existingBookings));
+    }
+
+    // Chuyển sang trang thành công
     window.location.href = 'datphongthanhcong.html';
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('accountBtn');
