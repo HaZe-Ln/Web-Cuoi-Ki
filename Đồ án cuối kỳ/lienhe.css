@@ -359,10 +359,11 @@ header .btn-warning:focus {
   color: #374151;
   background-color: white;
   cursor: pointer;
+  text-decoration: none;
 }
-
 .faq-button:hover {
-  background-color: #f9fafb;
+  background-color: #ff8800;
+  color: white !important;
 }
 
 .faq-button:focus {
