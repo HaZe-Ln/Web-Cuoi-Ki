@@ -100,7 +100,7 @@ function createHotelCard(hotel) {
                 ${originalPrice ? originalPrice + ' ' : ''} 
                 ${hotel.price.toLocaleString("vi-VN")} đ <small class="text-muted">/đêm</small> 
               </div> 
-           <a href="#" class="btn btn-orange" onclick="goToDetail(${hotel.id})">Xem chi tiết</a>
+          <a href="#" class="btn btn-orange hotel-link" data-id="${hotel.id}">Xem chi tiết</a>
             </div> 
           </div> 
         </div> 
@@ -268,3 +268,32 @@ document.addEventListener("click", function (event) {
     dichVuDropdown.style.display = "none";
   }
 });
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("hotel-link")) {
+        e.preventDefault(); // ❌ Ngăn chuyển trang mặc định
+
+        // Lấy dữ liệu form tìm kiếm
+        const destination = document.getElementById("destination").value.trim();
+        const checkin = document.getElementById("checkinDate").value.trim();
+        const checkout = document.getElementById("checkoutDate").value.trim();
+        const guestRoom = document.getElementById("guestRoom").value;
+
+        // Nếu thiếu thông tin → báo lỗi
+        if (!destination || !checkin || !checkout) {
+            alert("Vui lòng nhập đầy đủ thông tin tìm kiếm trước khi xem chi tiết khách sạn.");
+            return; // ❗ Dừng lại không làm gì nữa
+        }
+
+        // Nếu hợp lệ → chuyển trang thủ công
+        const hotelId = e.target.getAttribute("data-id");
+        const query = new URLSearchParams({
+            checkin,
+            checkout,
+            guestRoom
+        }).toString();
+
+        window.location.href = `xemkhachsan.html?id=${hotelId}&${query}`;
+    }
+});
+
+
